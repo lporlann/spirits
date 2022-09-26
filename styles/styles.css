@@ -1,0 +1,92 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar-brand{
+    font-size: 2rem;
+    color: black;
+    font-family: 'Rye', cursive;
+}
+.navbar-brand:hover{
+    color: black;
+}
+
+.nav-link{
+    margin-right: 10px;
+    margin-left: 10px;
+    color: black;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+}
+
+.search{
+    height: 40px;
+    width: 80%;
+    border-radius:60px;
+    outline: none;
+    border: 2px solid black;
+    margin-right: -35px;
+}
+
+.btn0{
+    height: 40px;
+    width: 40%;
+    outline: none;
+    border: none;
+    border-radius: 60px;
+    background: black;
+    color: white;
+    font-weight: 700;
+
+}
+.main{
+    background:url(/images/main/Whisky.jpg) no-repeat;
+    background-size: cover;
+    height: 70vh;
+    width: 100%;
+    background-position: 50% 50%;
+
+}
+.main h1{
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: 'Rye', cursive;
+    color: white;
+    margin-right: 15%;
+    
+}
+h1{
+    font-weight: 700;
+
+}
+.card:hover{
+    box-shadow: -7px -4px 22px -3px rgba(0,0,0,0.69);
+-webkit-box-shadow: -7px -4px 22px -3px rgba(0,0,0,0.69);
+-moz-box-shadow: -7px -4px 22px -3px rgba(0,0,0,0.69);
+transition: 0.5s;
+}
+
+.btn-carrito{
+    height: 50px;
+    width: 40%;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: black;
+    color: white;
+    
+   
+
+}
+.hide{
+    display: none;
+}
+
+.col-lg-3 {
+    margin: 40px;
+}
+.fa-cart-shopping{
+    font-size: 25px;
+}    
