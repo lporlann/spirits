@@ -184,19 +184,19 @@ cartButton();
 const setLocalCarrito = () =>{  localStorage.setItem("carrito" , JSON.stringify(carrito))}
     
 const localCarrito = JSON.parse(localStorage.getItem("carrito"))
-// window.onload = function(){
+window.onload = function(){
     
     
-//     if(localCarrito){
-//        carrito = localCarrito;
-//        displayCarrito(carrito)
+    if(localCarrito){
+       localCarrito.forEach(cart =>{
+        carrito.push(cart)
+       })
+       displayCarrito(carrito)
         
         
-//     }
-// }
+    }
+}
 
-// 1) EN ESTA FUNCION NECESITO RECUPERAR LA INFORMACION GUARDADA EN LOCALCARRITO Y REEMPLAZARLA POR EL CARRITO
-// CON EL METODO ONLOAD PARA QUE SE MUESTRE AUTOMATICAMENTE EL CARRITO ACTUAL ANTE EL REFRESH, ALGUN TIP??
 
 
 // 2) SIGO SIN PODER ORGANIZAR EL CODIGO EN DISTINTOS ARCHIVOS HTML, NO CREO QUE TENGA QUE VER CON EL ENLACE
