@@ -2,11 +2,8 @@
 
 const productCard = document.querySelector("#product-card");
 const filtred = document.querySelector("#buscador");
+const cartCard = document.querySelector("#cart-card");
 
-
-
-
-// EVENTOS
 
 // PRODUCTOS
 
@@ -18,7 +15,6 @@ const products = [
     stock: 20,
     category: "whiskey",
     img: "/images/whiskey/johnnie-black-png.png",
-    cant: 1
   },
   {
     id: 2,
@@ -27,7 +23,6 @@ const products = [
     stock: 40,
     category: "whiskey",
     img: "/images/whiskey/jonnie-red-png.png",
-    cant: 1
   },
   {
     id: 3,
@@ -36,7 +31,6 @@ const products = [
     stock: 10,
     category: "whiskey",
     img: "/images/whiskey/johnnie-doble-black.png",
-    cant: 1
   },
   {
     id: 4,
@@ -45,7 +39,6 @@ const products = [
     stock: 15,
     category: "whiskey",
     img: "/images/whiskey/johnnie-swing.png",
-    cant: 1
   },
   {
     id: 5,
@@ -54,7 +47,6 @@ const products = [
     stock: 15,
     category: "whiskey",
     img: "/images/whiskey/jack-daniels.png",
-    cant: 1
   },
   {
     id: 6,
@@ -63,7 +55,6 @@ const products = [
     stock: 15,
     category: "whiskey",
     img: "/images/whiskey/the-singleton-18.png",
-    cant: 1
   },
 ];
 
@@ -71,14 +62,7 @@ const products = [
 
 const carrito = [];
 
-
-
-
-
-
-
-
-// MOSTRAR PRODUCTOS 
+// MOSTRAR PRODUCTOS
 
 const displayProducts = (array) => {
   let card = "";
@@ -134,7 +118,6 @@ const filterProducts = () => {
   }
 };
 
-
 filtred.addEventListener("#buscador", filterProducts());
 filtred.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -144,34 +127,80 @@ filtred.addEventListener("keypress", (e) => {
 
 // CARRITO FUNCTIONS
 
-const buttonCart = document.querySelectorAll(".btn-carrito")
+const displayCarrito = (array) => {
+  let card = "";
+  cartCard.innerHTML = "";
 
-const cartButton = () =>{
-    for (const button of buttonCart) {
-        button.addEventListener("click", () =>{
-         const prod = products.find(product => product.id == button.id)
-        
-        if(prod){
-            for(let i = 0 ; i < carrito.length ; i++){
-                if(carrito[i].name === prod.name){
-                    carrito[i].cant++
-                    return null
-                }
-            }
-            carrito.push(prod)
+  array.forEach((product) => {
+    card = `<div class="col-lg-3 text-center">
+      <div class="card border-0 bg-light mb-2">
+          <div class="card-body">
+              <img src= ${product.img} class="img-fluid" alt="Imagen jack-daniels">
+          </div>
+      </div>
+      <h6>${product.name}</h6>
+      <p>$${product.price}</p>
+      <button type="submit" class="btn-carrito" id=${product.id}>Cantidad: ${product.quantity}</button>
+      
+  
+  </div>`;
+    cartCard.innerHTML += card;
+  });
+};
+
+const cartButton = () => {
+  let buttonCart = document.querySelectorAll(".btn-carrito");
+  for (const button of buttonCart) {
+    button.addEventListener("click", () => {
+      let prod = carrito.find((product) => product.id == button.id);
+      if (prod) {
+        prod.quantity++;
+      } else {
+        let prod = products.find((product) => product.id == button.id);
+        if (prod) {
+          let newProduct = {
+            id: prod.id,
+            name: prod.name,
+            price: prod.price,
+            stock: prod.stock,
+            category: prod.category,
+            img: prod.img,
+            quantity: 1,
+          };
+          carrito.push(newProduct);
         }
+      }
+      setLocalCarrito()
+      displayCarrito(carrito);
+    });
+  }
+};
+
+cartButton();
+
+                                    //STORAGE FUNCTIONS
+
+
+const setLocalCarrito = () =>{  localStorage.setItem("carrito" , JSON.stringify(carrito))}
+    
+const localCarrito = JSON.parse(localStorage.getItem("carrito"))
+// window.onload = function(){
+    
+    
+//     if(localCarrito){
+//        carrito = localCarrito;
+//        displayCarrito(carrito)
         
         
-        })
-        let strCarrito = localStorage.setItem("carrito" , JSON.stringify(carrito))
-           
-        
-    }}
+//     }
+// }
 
-cartButton()
+// 1) EN ESTA FUNCION NECESITO RECUPERAR LA INFORMACION GUARDADA EN LOCALCARRITO Y REEMPLAZARLA POR EL CARRITO
+// CON EL METODO ONLOAD PARA QUE SE MUESTRE AUTOMATICAMENTE EL CARRITO ACTUAL ANTE EL REFRESH, ALGUN TIP??
 
 
-
-
+// 2) SIGO SIN PODER ORGANIZAR EL CODIGO EN DISTINTOS ARCHIVOS HTML, NO CREO QUE TENGA QUE VER CON EL ENLACE
+// DE LOS ARCHIVOS JS, CREO QUE TIENE QUE VER CON EL MODO QUE ELEGI PARA LA CARGA DINAMICA EN EL HTML,YA QUE
+//DA UN ERROR EN LA LINEA DE CODIGO.INNERHTML
 
 
