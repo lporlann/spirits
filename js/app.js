@@ -159,12 +159,8 @@ const cartButton = () => {
         let prod = products.find((product) => product.id == button.id);
         if (prod) {
           let newProduct = {
-            id: prod.id,
-            name: prod.name,
-            price: prod.price,
-            stock: prod.stock,
-            category: prod.category,
-            img: prod.img,
+            
+            ...prod,
             quantity: 1,
           };
           carrito.push(newProduct);
@@ -186,21 +182,17 @@ const setLocalCarrito = () =>{  localStorage.setItem("carrito" , JSON.stringify(
 const localCarrito = JSON.parse(localStorage.getItem("carrito"))
 window.onload = function(){
     
-    
-    if(localCarrito){
-       localCarrito.forEach(cart =>{
-        carrito.push(cart)
-       })
-       displayCarrito(carrito)
-        
-        
-    }
+    localCarrito && localCarrito.forEach(item =>{carrito.push(item)})
+    displayCarrito(carrito)
 }
+    
+
+
+   
 
 
 
-// 2) SIGO SIN PODER ORGANIZAR EL CODIGO EN DISTINTOS ARCHIVOS HTML, NO CREO QUE TENGA QUE VER CON EL ENLACE
-// DE LOS ARCHIVOS JS, CREO QUE TIENE QUE VER CON EL MODO QUE ELEGI PARA LA CARGA DINAMICA EN EL HTML,YA QUE
-//DA UN ERROR EN LA LINEA DE CODIGO.INNERHTML
+
+
 
 
