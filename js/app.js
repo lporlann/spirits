@@ -171,7 +171,7 @@ const displayCarrito = (array) => {
     <td><img src=${product.img} class="cart-img" alt=""></td>
     <td>$${product.price}</td>
     <td>${product.quantity}</td>
-    <td><button type="submit" class="btn-eliminar-carrito" id="${product.id}" product-data="${product.id}" >X</button></td>
+    <td><button type="submit" class="btn-eliminar-carrito" id="${product.id}" product-data="${product.id}" ><i class="fa-solid fa-trash"></i></button></td>
     
     
   </tr>  
