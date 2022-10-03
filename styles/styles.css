@@ -89,4 +89,36 @@ transition: 0.5s;
 }
 .fa-cart-shopping{
     font-size: 25px;
-}    
+}  
+
+
+.cart-img{
+    justify-content: center;
+    display: flex;
+    height: 40px;
+    width: 40px;
+    margin-right: 40%;
+    border: black;
+}
+.cart-quantity-input{
+    width: 30px;
+    color: black;
+}
+.btn-eliminar-carrito{
+    height: 50px;
+    width: 40%;
+    outline: none;
+    border: none;
+    margin-bottom: 5%;
+    background: rgb(234, 234, 234);
+    color: black;
+}
+.table{
+    border: black;
+    margin-top: 2%;
+    font-weight: 600;
+}
+#td{
+    justify-content: center;
+    
+}

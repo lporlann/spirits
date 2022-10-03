@@ -3,6 +3,11 @@
 const productCard = document.querySelector("#product-card");
 const filtred = document.querySelector("#buscador");
 const cartCard = document.querySelector("#cart-card");
+const cartTable = document.querySelector("#cart-table");
+
+
+// EVENTOS
+
 
 
 // PRODUCTOS
@@ -10,7 +15,7 @@ const cartCard = document.querySelector("#cart-card");
 const products = [
   {
     id: 1,
-    name: "WHISKEY JOHNNIE WALKER BLACK",
+    name: "JOHNNIE WALKER BLACK",
     price: 8000,
     stock: 20,
     category: "whiskey",
@@ -18,7 +23,7 @@ const products = [
   },
   {
     id: 2,
-    name: "WHISKEY JOHNNIE WALKER RED",
+    name: "JOHNNIE WALKER RED",
     price: 6000,
     stock: 40,
     category: "whiskey",
@@ -26,7 +31,7 @@ const products = [
   },
   {
     id: 3,
-    name: "WHISKEY JOHNNIE DOUBLE BLACK",
+    name: "JOHNNIE DOUBLE BLACK",
     price: 15000,
     stock: 10,
     category: "whiskey",
@@ -34,7 +39,7 @@ const products = [
   },
   {
     id: 4,
-    name: "WHISKEY JOHNNIE WALKER SWING",
+    name: "JOHNNIE WALKER SWING",
     price: 8000,
     stock: 15,
     category: "whiskey",
@@ -42,7 +47,7 @@ const products = [
   },
   {
     id: 5,
-    name: "WHISKEY JACK DANIELS N°7",
+    name: "JACK DANIELS N°7",
     price: 8000,
     stock: 15,
     category: "whiskey",
@@ -50,7 +55,7 @@ const products = [
   },
   {
     id: 6,
-    name: "WHISKEY THE SINGLETON 18",
+    name: "THE SINGLETON 18",
     price: 8000,
     stock: 15,
     category: "whiskey",
@@ -76,7 +81,7 @@ const displayProducts = (array) => {
         </div>
     </div>
     <h6>${product.name}</h6>
-    <p>${product.price}</p>
+    <p>$${product.price}</p>
     <button type="submit" class="btn-carrito" id=${product.id}>Agregar al carrito</button>
     
 
@@ -127,30 +132,66 @@ filtred.addEventListener("keypress", (e) => {
 
 // CARRITO FUNCTIONS
 
+const removeCartItem = () =>{
+  const deleteButton = document.querySelectorAll(".btn-eliminar-carrito")
+  for (const button of deleteButton) {
+    button.addEventListener('click' , () =>{
+      let itemToRemove = carrito.findIndex(item =>
+        item.id == button.id
+      ) 
+     if(itemToRemove !== -1){
+      deleteConfirm()
+      carrito.splice( itemToRemove , 1)
+      setLocalCarrito()
+      displayCarrito(carrito)
+     }else{
+      displayCarrito(carrito)
+     }
+        
+      
+    
+      })
+    }
+}
+
+
+
 const displayCarrito = (array) => {
+  
   let card = "";
-  cartCard.innerHTML = "";
+  cartTable.innerHTML = "";
 
   array.forEach((product) => {
-    card = `<div class="col-lg-3 text-center">
-      <div class="card border-0 bg-light mb-2">
-          <div class="card-body">
-              <img src= ${product.img} class="img-fluid" alt="Imagen jack-daniels">
-          </div>
-      </div>
-      <h6>${product.name}</h6>
-      <p>$${product.price}</p>
-      <button type="submit" class="btn-carrito" id=${product.id}>Cantidad: ${product.quantity}</button>
-      
+ 
+  card = `
   
-  </div>`;
-    cartCard.innerHTML += card;
+  <tr>
+  
+    <td>${product.name}</td>
+    <td><img src=${product.img} class="cart-img" alt=""></td>
+    <td>$${product.price}</td>
+    <td>${product.quantity}</td>
+    <td><button type="submit" class="btn-eliminar-carrito" id="${product.id}" product-data="${product.id}" >X</button></td>
+    
+    
+  </tr>  
+  
+
+</table>`
+
+
+
+    cartTable.innerHTML += card;
+    cartTotal()
+    removeCartItem()
+     
   });
+  
 };
 
 const cartButton = () => {
   let buttonCart = document.querySelectorAll(".btn-carrito");
-  for (const button of buttonCart) {
+  for (  const button of buttonCart) {
     button.addEventListener("click", () => {
       let prod = carrito.find((product) => product.id == button.id);
       if (prod) {
@@ -163,16 +204,76 @@ const cartButton = () => {
             ...prod,
             quantity: 1,
           };
+          cartTotal()
           carrito.push(newProduct);
+          
         }
       }
-      setLocalCarrito()
+      
       displayCarrito(carrito);
+      removeCartItem()
+      
+      setLocalCarrito()
+      cartTotal()
+      
+      
+      
     });
   }
 };
 
 cartButton();
+
+const cartTotal =() =>{
+  
+  let total = 0
+  
+  const displayCartTotal = document.querySelector(".total-value")
+  if(carrito.length > 0){
+  carrito.forEach(item =>{
+    const cartPrice = Number(item.price)
+    total = total + cartPrice*item.quantity
+    displayCartTotal.innerHTML = ` TOTAL = ${total}`
+    
+  })}
+}    
+
+const deleteConfirm = () =>{
+  Swal.fire({
+    icon: 'success',
+    title: 'Eliminado',})
+
+    }
+      
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+
+
+  
+  
+  
+      
+  
+
+
+
+
+
+  
+  
+
+
+
 
                                     //STORAGE FUNCTIONS
 
