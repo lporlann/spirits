@@ -95,8 +95,8 @@ transition: 0.5s;
 .cart-img{
     justify-content: center;
     display: flex;
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
     margin-right: 40%;
     border: black;
 }

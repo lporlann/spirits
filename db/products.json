@@ -1,0 +1,50 @@
+ [
+    {
+      "id": 1,
+      "name": "JOHNNIE WALKER BLACK",
+      "price": 8000,
+      "stock": 20,
+      "category": "whiskey",
+      "img": "/images/whiskey/johnnie-black-png.png"
+    },
+    {
+      "id": 2,
+      "name": "JOHNNIE WALKER RED",
+      "price": 6000,
+      "stock": 40,
+      "category": "whiskey",
+      "img": "/images/whiskey/jonnie-red-png.png"
+    },
+    {
+      "id": 3,
+      "name": "JOHNNIE DOUBLE BLACK",
+      "price": 15000,
+      "stock": 10,
+      "category": "whiskey",
+      "img": "/images/whiskey/johnnie-doble-black.png"
+    },
+    {
+      "id": 4,
+      "name": "JOHNNIE WALKER SWING",
+      "price": 8000,
+      "stock": 15,
+      "category": "whiskey",
+      "img": "/images/whiskey/johnnie-swing.png"
+    },
+    {
+      "id": 5,
+      "name": "JACK DANIELS N°7",
+      "price": 8000,
+      "stock": 15,
+      "category": "whiskey",
+      "img": "/images/whiskey/jack-daniels.png"
+    },
+    {
+      "id": 6,
+      "name": "THE SINGLETON 18",
+      "price": 8000,
+      "stock": 15,
+      "category": "whiskey",
+      "img": "/images/whiskey/the-singleton-18.png"
+    }
+  ]
