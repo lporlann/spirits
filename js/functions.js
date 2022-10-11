@@ -51,10 +51,10 @@ const setCartButtons = () => {
 
 const displayCart = (array) => {
   let cartCard = "";
-  cartTable.innerHTML = "";
+  
 
   array.forEach((product) => {
-    cartCard = `
+    cartCard += `
     
     <tr>
     
@@ -62,7 +62,7 @@ const displayCart = (array) => {
       <td><img src=${product.img} class="cart-img" alt=""></td>
       <td>$${product.price}</td>
       <td>${product.quantity}</td>
-      <td><button type="submit" class="btn-eliminar-carrito" id="${product.id}"  ><i class="fa-solid fa-trash"></i></button></td>
+      <td><button type="submit" class="btn-delete-cart" id="${product.id}"  ><i class="fa-solid fa-trash"></i></button></td>
       
       
     </tr> 
@@ -70,28 +70,96 @@ const displayCart = (array) => {
   
   </table>`;
 
-    cartTable.innerHTML += cartCard;
+    cartTable.innerHTML = cartCard;
+    setDeleteButtons()
+    
   });
 };
 
 const addToChart = (event) => {
+  
   let prod = cart.find((item) => item.id == parseInt(event.target.id));
   if (prod) {
+    
     prod.quantity++;
+    displayCart(cart)
+
   } else {
-    let prod = products.find((item) => item.id == parseInt(event.target.id));
+    let prod = products.find((item) => item.id === parseInt(event.target.id));
     if (prod) {
       let newProduct = {
         ...prod,
         quantity: 1,
       };
       cart.push(newProduct);
-
-      setLocalCart();
-      displayCart(cart);
-      cartTotal()
+      displayCart(cart)
+      
+      
+      
       
     }
   }
+  setLocalCart();
+  cartTotal()
+  
+  
 };
 
+
+const setDeleteButtons = () =>{
+  
+  let deleteButton = document.querySelectorAll('.btn-delete-cart')
+  deleteButton.forEach(button =>{
+    button.addEventListener( 'click' , () =>{
+      let itemToRemove = cart.findIndex(item => item.id == button.id)
+     
+      if(itemToRemove !== -1){
+        cart.splice (itemToRemove , 1)
+       
+        displayCart(cart)
+        setLocalCart()
+        cartTotal()
+        
+
+      }else{
+        displayCart(cart)
+      }
+    } )
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// const removeCartItem = () =>{
+//   const deleteButton = document.querySelectorAll(".btn-eliminar-cart")
+//   for (const button of deleteButton) {
+//     button.addEventListener('click' , () =>{
+//       let itemToRemove = cart.findIndex(item =>
+//         item.id == button.id
+//       ) 
+      
+//      if(itemToRemove !== -1){
+      
+//       cart.splice( itemToRemove , 1)
+//       displaycart(cart)
+//       setLocalcart()
+//       cartTotal()
+//      }else{
+//       displaycart(cart)
+//      }
+        
+      
+    
+//       })
+//     }
+// }
+// removeCartItem()
