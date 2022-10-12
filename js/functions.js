@@ -115,10 +115,16 @@ const setDeleteButtons = () =>{
      
       if(itemToRemove !== -1){
         cart.splice (itemToRemove , 1)
+        
        
         displayCart(cart)
         setLocalCart()
         cartTotal()
+        if(cart.length == 0){
+          location.reload()
+        }
+          
+        
         
 
       }else{

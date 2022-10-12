@@ -48,10 +48,43 @@ const cartTotal =() =>{
   // STORAGE FUNCTIONS
 
 
-const setLocalCart = () =>{  localStorage.setItem("cart" , JSON.stringify(cart))
-                                    }
+const setLocalCart = () =>{  localStorage.setItem("cart" , JSON.stringify(cart))}
+                                    
 const localCart = JSON.parse(localStorage.getItem("cart"))    
 
+
+
+// CLASES
+
+class Alerta{
+  constructor(name , id){
+    this.name = name;
+    this.id = id;
+  }
+  buyConfirm(){
+    let confirmButton = document.querySelector('#buy-button')
+    confirmButton.addEventListener('click' , async () =>{
+      if(cart.length > 0){
+       await Swal.fire(
+          'MUCHAS GRACIAS!',
+          'Tu compra fue confirmada!',
+          'success'
+        )
+        localStorage.clear()
+        location.reload()
+        
+      }else{
+        throw null
+      }
+      
+      
+    })
+  }
+
+}
+const buyAlert = new Alerta('confirmar' , 1)
+
+buyAlert.buyConfirm()
 
 
   

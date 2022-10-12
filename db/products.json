@@ -2,7 +2,7 @@
     {
       "id": 1,
       "name": "JOHNNIE WALKER BLACK",
-      "price": 8000,
+      "price": 8900,
       "stock": 20,
       "category": "whiskey",
       "img": "/images/whiskey/johnnie-black-png.png"
@@ -10,7 +10,7 @@
     {
       "id": 2,
       "name": "JOHNNIE WALKER RED",
-      "price": 6000,
+      "price": 5900,
       "stock": 40,
       "category": "whiskey",
       "img": "/images/whiskey/jonnie-red-png.png"
@@ -18,7 +18,7 @@
     {
       "id": 3,
       "name": "JOHNNIE DOUBLE BLACK",
-      "price": 15000,
+      "price": 12000,
       "stock": 10,
       "category": "whiskey",
       "img": "/images/whiskey/johnnie-doble-black.png"
@@ -26,7 +26,7 @@
     {
       "id": 4,
       "name": "JOHNNIE WALKER SWING",
-      "price": 8000,
+      "price": 17300,
       "stock": 15,
       "category": "whiskey",
       "img": "/images/whiskey/johnnie-swing.png"
@@ -34,7 +34,7 @@
     {
       "id": 5,
       "name": "JACK DANIELS N°7",
-      "price": 8000,
+      "price": 8800,
       "stock": 15,
       "category": "whiskey",
       "img": "/images/whiskey/jack-daniels.png"
@@ -42,9 +42,58 @@
     {
       "id": 6,
       "name": "THE SINGLETON 18",
-      "price": 8000,
+      "price": 22900,
       "stock": 15,
       "category": "whiskey",
       "img": "/images/whiskey/the-singleton-18.png"
+    },
+    {
+      "id": 7,
+      "name": "WILD TURKEY 101",
+      "price": 13000,
+      "stock": 21,
+      "category": "bourbon",
+      "img": "/images/bourbon/wild-turkey-101.png"
+    },
+    {
+      "id": 8,
+      "name": "BENCHMARK BOURBON",
+      "price": 5900,
+      "stock": 15,
+      "category": "bourbon",
+      "img": "/images/bourbon/benchmark.png"
+    },
+    {
+      "id": 9,
+      "name": "BUFFALO TRACE",
+      "price": 11200,
+      "stock": 15,
+      "category": "bourbon",
+      "img": "/images/bourbon/buffalo-trace.png"
+    },
+    {
+      "id": 10,
+      "name": "JIM BEAM WHITE",
+      "price": 5900,
+      "stock": 15,
+      "category": "bourbon",
+      "img": "/images/bourbon/jim-beam-white.png"
+    },
+    {
+      "id": 11,
+      "name": "JIM BEAM DEVIL´S CUT",
+      "price": 12100,
+      "stock": 15,
+      "category": "bourbon",
+      "img": "/images/bourbon/jim-beam-devilscut.png"
+    },
+    {
+      "id": 12,
+      "name": "JIM BEAM BLACK",
+      "price": 9900,
+      "stock": 15,
+      "category": "bourbon",
+      "img": "/images/bourbon/jim-beam-black.png"
     }
+    
   ]
