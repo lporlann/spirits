@@ -17,7 +17,7 @@ const loadDB = async () => {
     const response = await fetch(url);
     const data = await response.json();
     products = data;
-    products.forEach((element) => (card += displayProducts(element)));
+    products.forEach( element => (card += displayProducts(element)));
   } catch (e) {
     console.log(e);
   } finally {
@@ -25,8 +25,13 @@ const loadDB = async () => {
   }
 };
 
-const displayProducts = (db) => {
-  const { id, img, name, price } = db;
+
+
+
+
+
+const displayProducts = (array) => {
+  const { id, img, name, price } = array;
 
   return `<div class="col-lg-3 text-center">
                 <div class="card border-0 bg-light mb-2">
@@ -49,6 +54,7 @@ const setCartButtons = () => {
   );
 };
 
+// MOSTRAR CARRITO
 const displayCart = (array) => {
   let cartCard = "";
   
@@ -75,6 +81,7 @@ const displayCart = (array) => {
     
   });
 };
+// AÑADIR AL CARRITO
 
 const addToChart = (event) => {
   
@@ -104,7 +111,7 @@ const addToChart = (event) => {
   
   
 };
-
+// BORRAR ITEMS DEL CARRITO / SETEAR LOCALSTORAGE / CALCULAR TOTAL
 
 const setDeleteButtons = () =>{
   
@@ -134,38 +141,17 @@ const setDeleteButtons = () =>{
   })
 }
 
+// IR ARRIBA
+const backTop = document.querySelector('.back-top')
 
+backTop.addEventListener('click' , () =>{
+  document.documentElement.scrollTop = 0
+})
 
-
-
-
-
-
-
-
-
-
-// const removeCartItem = () =>{
-//   const deleteButton = document.querySelectorAll(".btn-eliminar-cart")
-//   for (const button of deleteButton) {
-//     button.addEventListener('click' , () =>{
-//       let itemToRemove = cart.findIndex(item =>
-//         item.id == button.id
-//       ) 
-      
-//      if(itemToRemove !== -1){
-      
-//       cart.splice( itemToRemove , 1)
-//       displaycart(cart)
-//       setLocalcart()
-//       cartTotal()
-//      }else{
-//       displaycart(cart)
-//      }
-        
-      
-    
-//       })
-//     }
-// }
-// removeCartItem()
+window.addEventListener('scroll' , () =>{
+  if(window.scrollY < 600){
+    backTop.style.right = -100 + 'px'
+  }else{
+    backTop.style.right = 5 + 'px'
+  }
+})

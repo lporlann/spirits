@@ -1,13 +1,11 @@
-//DOM CONTENT LOADED----------------
+//DOM CONTENT LOADED------ CARGA DE BASE DE DATOS
 
 document.addEventListener("DOMContentLoaded", async ()=> {
   const wait = await loadDB()
-                     setCartButtons() 
-                     
-                     
-
-        
+                     setCartButtons()                                               
 })
+// CARGA DE CARRITO RECUPERADO DE LOCALSTORAGE
+
 document.body.onload = () =>{
   if(localCart.length > 0){
     localCart.forEach(item => cart.push(item))
@@ -16,16 +14,9 @@ document.body.onload = () =>{
   }
  }
 
+// CALCULAR TOTAL 
 
-
-
-
-
-
-
-
-
-const cartTotal =() =>{
+ const cartTotal =() =>{
   
   let total = 0
   
@@ -34,17 +25,13 @@ const cartTotal =() =>{
   cart.forEach(item =>{
     const cartPrice = Number(item.price)
     total = total + cartPrice*item.quantity
-    displayCartTotal.innerHTML = ` TOTAL = ${total}`
+    displayCartTotal.innerHTML = ` TOTAL = $${total}`
     
   })
   
   }
 }    
-
-
-
-      
-    
+  
   // STORAGE FUNCTIONS
 
 
