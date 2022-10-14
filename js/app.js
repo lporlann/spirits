@@ -2,7 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", async ()=> {
   const wait = await loadDB()
-                     setCartButtons()                                               
+                     setCartButtons() 
+                     if(older !== 1){askAge()}
+                                                                   
 })
 // CARGA DE CARRITO RECUPERADO DE LOCALSTORAGE
 
@@ -37,7 +39,11 @@ document.body.onload = () =>{
 
 const setLocalCart = () =>{  localStorage.setItem("cart" , JSON.stringify(cart))}
                                     
-const localCart = JSON.parse(localStorage.getItem("cart"))    
+const localCart = JSON.parse(localStorage.getItem("cart")) 
+const older = JSON.parse(sessionStorage.getItem('age-ok'))
+
+
+   
 
 
 
@@ -67,11 +73,38 @@ class Alerta{
       
     })
   }
-
+  
 }
 const buyAlert = new Alerta('confirmar' , 1)
 
 buyAlert.buyConfirm()
+
+const askAge = async () =>{
+  const { value: accept } = await Swal.fire({
+    icon:'warning',
+    title: 'Sos mayor de edad?',
+    input: 'checkbox',
+    inputValue: 0,
+    inputPlaceholder:
+      'Confirmo que soy mayor de 18 años',
+    confirmButtonText:
+      'Entrar <i class="fa fa-arrow-right"></i>',
+      allowEscapeKey: false,
+      allowOutsideClick: false,
+      customClass: {popup: 'age-alert-popup'},
+    inputValidator: (result) => {
+      return !result && 'Necesitamos que confirmes para dejarte pasar'
+    }
+  })
+  if(accept){
+    sessionStorage.setItem("age-ok" , JSON.stringify(accept))
+  }
+}  
+  
+         
+          
+  
+
 
 
   

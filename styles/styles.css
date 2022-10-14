@@ -6,7 +6,7 @@
 
 .navbar-brand{
     font-size: 2rem;
-    color: black;
+    color: rgba(198, 143, 5, 0.89);
     font-family: 'Rye', cursive;
 }
 .navbar-brand:hover{
@@ -138,4 +138,38 @@ transition: 0.5s;
     font-size: 20px;
     font-weight: bold;
     
+}
+.age-alert-popup{
+    border-radius: 0;
+    font-family: 'Rye', cursive;
+}    
+    
+.nav-link{
+    color: rgba(198, 143, 5, 0.89);
+    font-weight: 500;
+    
+}
+.nav-link:hover{
+    color: black;
+}
+#shop-icon{
+    
+    color: rgba(198, 143, 5, 0.89);
+}
+#shop-icon:hover{
+    color: black;
+}
+
+
+
+.cart-button{
+    border: none;
+}
+
+#arrow-up{
+    color: rgba(198, 143, 5, 0.89);
+}
+#buy-button{
+    background-color: rgba(198, 143, 5, 0.89);
+    border: none;
 }

@@ -6,6 +6,9 @@ let products = [];
 // DOM PRODUCTS
 const productCard = document.querySelector("#product-card");
 const cartTable = document.querySelector("#cart-table");
+const cartCount = document.querySelector('#cart-count')
+
+
 let card = "";
 
 
@@ -104,6 +107,8 @@ const addToChart = (event) => {
       
       
       
+      
+      
     }
   }
   setLocalCart();
@@ -155,3 +160,14 @@ window.addEventListener('scroll' , () =>{
     backTop.style.right = 5 + 'px'
   }
 })
+
+// ESTILO ICONO CARRITO
+const cartIcon = document.querySelector('#shop-icon')
+
+const cartStyle = () =>{
+  debugger
+  if (cart.length > 0){
+    cartIcon.classList.remove('shop-icon')
+  }
+}
+cartStyle()
