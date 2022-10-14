@@ -6,4 +6,4 @@
 
 # 13/10/22
 
-### Forma final del proyecto con display dinamico de productos y carrito de compras, el carrito esta completamente funcional y se recupera con localstorage, el sitio autentica mayoria de edad y este valor se guarda en sessionStorage
+### Forma final del proyecto ecomerce de bebidas con display dinamico de productos y carrito de compras, el carrito esta completamente funcional y se recupera con localstorage, el sitio autentica mayoria de edad y este valor se guarda en sessionStorage
