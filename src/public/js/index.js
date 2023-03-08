@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async ()=> {
   const wait = await loadDB()
                      setCartButtons() 
                      if(older !== 1){askAge()}
+                    
                                                                    
 })
 // CARGA DE CARRITO RECUPERADO DE LOCALSTORAGE

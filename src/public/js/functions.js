@@ -1,5 +1,5 @@
 // PRODUCTS Y DATABASE-------
-const url = "../db/products.json";
+const url = "/db/products.json";
 let cart = [];
 let products = [];
 
@@ -22,7 +22,7 @@ const loadDB = async () => {
     products = data;
     products.forEach( element => (card += displayProducts(element)));
   } catch (e) {
-    console.log(e);
+    
   } finally {
     productCard.innerHTML = card;
   }
@@ -165,7 +165,7 @@ window.addEventListener('scroll' , () =>{
 const cartIcon = document.querySelector('#shop-icon')
 
 const cartStyle = () =>{
-  debugger
+  
   if (cart.length > 0){
     cartIcon.classList.remove('shop-icon')
   }
